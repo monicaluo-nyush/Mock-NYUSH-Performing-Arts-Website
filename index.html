@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NYU Shanghai Orchestra — Honorary Members</title>
+  <title>NYU Shanghai Orchestra — Artists</title>
   <style>
     :root{
-      --purple:#800080; /* NYU-style purple */
+      --purple:#800080;
       --text:#333;
       --muted:#6b6b6b;
       --border:#e7e7e7;
@@ -20,7 +20,7 @@
       background:#fff;
     }
 
-    /* ==== TOP NAV (logo left, menu right) ==== */
+    /* ==== TOP NAV ==== */
     .topbar{
       background:#fff;
       border-bottom:1px solid rgba(0,0,0,.06);
@@ -47,34 +47,29 @@
     }
     .mainnav a:hover{ color:var(--purple); }
 
-    /* ==== HERO BANNER (full-width image under nav) ==== */
-    .hero{
-      width:100%;
-      background:#f5f5f5;
-    }
+    /* ==== HERO ==== */
     .hero img{
       width:100%;
-      height:380px;           /* adjust to taste */
+      height:380px;
       object-fit:cover;
       display:block;
     }
 
-    /* ==== CONTENT WRAPPER (sidebar + main) ==== */
+    /* ==== CONTENT ==== */
     .page{
       max-width:var(--container);
       margin:40px auto 80px;
       padding:0 24px;
       display:grid;
-      grid-template-columns:280px 1fr; /* sidebar left, content right */
+      grid-template-columns:280px 1fr;
       gap:48px;
     }
 
-    /* ==== SIDEBAR (inside content area, like screenshot) ==== */
+    /* ==== SIDEBAR ==== */
     .sidebar{
       align-self:start;
       border:1px solid var(--border);
       border-radius:6px;
-      overflow:hidden;
       background:#fff;
     }
     .sidebar a{
@@ -90,32 +85,34 @@
     .sidebar a.active{
       color:var(--purple);
       font-weight:700;
-      background: #faf6ff;
+      background:#faf6ff;
     }
 
-    /* ==== MAIN CONTENT ==== */
+    /* ==== MAIN ==== */
     .main h1{
       margin:0 0 8px;
-      font-size:56px;
+      font-size:48px;
       line-height:1.1;
       color:var(--purple);
       letter-spacing:.5px;
     }
+
+    /* ==== EYEBROW ==== */
     .eyebrow{
       color:var(--muted);
       font-weight:700;
-      margin-bottom:24px;
+      margin:40px 0 24px;   /* more top margin to separate from gray line */
       text-transform:uppercase;
       font-size:12px;
       letter-spacing:.1em;
+      display:block;
     }
 
-    /* ==== ABOUT SECTION ==== */
+    /* ==== ABOUT ==== */
     .about-section h2{
-      font-size:64px;
+      font-size:48px;
       font-weight:700;
       margin:0 0 12px;
-      /* Ombré effect */
       background: linear-gradient(90deg, #4b0082, #800080, #b266ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -123,11 +120,10 @@
     .about-section p{
       font-size:16px;
       line-height:1.6;
-      color:var(--text);
       margin-bottom:32px;
     }
 
-    /* Member rows (headshot left, text right) */
+    /* ==== MEMBER FORMAT ==== */
     .member{
       display:flex;
       gap:32px;
@@ -145,31 +141,45 @@
     .member .info h2{
       margin:0 0 8px; font-size:28px; color:var(--purple);
     }
-    .member .info p{
-      margin:6px 0; font-size:16px; line-height:1.6;
-    }
+    .member .info p{ margin:6px 0; font-size:16px; line-height:1.6; }
+
+    /* ==== INSTITUTION LOGOS INLINE ==== */
+.institution-grid{
+  display: flex;
+  justify-content: space-between; /* spreads logos evenly */
+  align-items: center;
+  gap: 24px;       /* optional spacing between logos */
+  margin-top: 16px; /* space above logos */
+}
+
+.institution-grid img{
+  width: 100%;        /* 3 logos fit roughly side by side */
+  max-height: 200px; 
+  object-fit: contain;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px;
+  background: #fff; }
 
     /* ==== MOBILE ==== */
     @media (max-width: 900px){
-      .topbar__inner{ padding:12px 16px; }
-      .hero img{ height:240px; }
-      .page{
-        grid-template-columns:1fr;
-        gap:24px;
-      }
-      .sidebar{ order:2; }  /* sidebar below on mobile */
+      .page{ grid-template-columns:1fr; gap:24px; }
+      .sidebar{ order:2; }
       .main{ order:1; }
       .member{ flex-direction:column; }
       .member img{ width:100%; height:auto; }
-      .main h1{ font-size:40px; }
-      .about-section h2{ font-size:28px; }
-      .about-section p{ font-size:15px; }
+      .institution-grid{ grid-template-columns:repeat(2,1fr); }
+      .institution-grid div:nth-child(4),
+      .institution-grid div:nth-child(5){
+        grid-column:auto; /* reset for mobile */
+        justify-self:center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top banner -->
+  <!-- Top bar -->
   <header class="topbar">
     <div class="topbar__inner">
       <div class="logo">
@@ -181,18 +191,19 @@
         <a href="#">Music</a>
         <a href="#">Theater</a>
         <a href="#">News</a>
+        <a href="#">Artists</a>
         <a href="#">FAQ</a>
         <a href="#">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Full-width hero image -->
+  <!-- Hero -->
   <section class="hero">
     <img src="NYU00002.jpg" alt="Orchestra rehearsal banner">
   </section>
 
-  <!-- Content area -->
+  <!-- Content -->
   <section class="page">
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -200,63 +211,89 @@
       <a href="#">Faculty</a>
       <a href="#">Courses</a>
       <a href="#">Performances</a>
-      <a href="#" class="active">Honorary Members</a>
+      <a href="#" class="active">Artists</a>
     </aside>
 
-    <!-- Main content -->
+    <!-- Main -->
     <main class="main">
 
       <!-- About Section -->
       <div class="about-section">
         <h2>About</h2>
         <p>
-          Honorary members are recognized for their exceptional contributions to the NYU Shanghai Orchestra as seasoned and mature professional musician, 
-          fostering artistic growth, mentorship, and cross-cultural collaboration within our students and community. We acknowledge their time and effot here. 
+          Our Artists contribute to the NYU Shanghai Orchestra through their expertise, mentorship, and collaboration, fostering artistic growth and cross-cultural engagement with our students and community.
         </p>
       </div>
 
-      <h1>Honorary Members</h1>
-      <div class="eyebrow">NYU Shanghai Orchestra</div>
+      <!-- Professors At-Large -->
+      <h1>Professors At-Large</h1>
 
-      <!-- Member 1 -->
+      <!-- Professor Slot 1 -->
       <article class="member">
-        <img src="Liu.jpg" alt="Shiwen Liu">
+        <img src="Kong.png" alt="Professor 1">
+        <div class="info">
+          <h2>Xiangdong Kong</h2>
+          <p><strong>Performing Arts Professor</strong></p>
+          <p>Kong Xiangdong is one of China’s most celebrated pianists, renowned for his virtuosity and charismatic stage presence. Born in Shanghai, he rose to international prominence after winning prizes at the Tchaikovsky International Piano Competition and other prestigious contests. Kong has performed with leading orchestras worldwide, blending classical repertoire with innovative interpretations that showcase both technical mastery and emotional depth. Beyond performance, he is also dedicated to music education and cultural exchange, inspiring younger generations to embrace piano and classical music. With his artistry and passion, Kong has become a cultural ambassador for China’s flourishing music scene.</p>
+        </div>
+      </article>
+
+      <!-- Professor Slot 2 -->
+      <article class="member">
+        <img src="Guo.jpg" alt="Professor 2">
+        <div class="info">
+          <h2>Kaiser Guo</h2>
+          <p><strong>Social Sciences Professor</strong></p>
+          <p>Kaiser Kuo is a writer, musician, and commentator best known as a leading voice on Chinese society, culture, and technology. Born in the United States to Chinese parents, he co-founded the iconic Chinese heavy metal band Tang Dynasty in the late 1980s, blending Western rock with traditional Chinese elements. Later, he became Director of International Communications at Baidu, shaping the company’s global outreach. Today, he is widely recognized as co-founder and host of the acclaimed Sinica Podcast, which brings in-depth conversations on China to a global audience. Through music, media, and dialogue, Kuo bridges cultures with insight and creativity.</p>
+        </div>
+      </article>
+
+      <!-- Artistic Partners -->
+      <h1>Artistic Partners</h1>
+      <div class="eyebrow">Individuals</div>
+
+      <!-- Individuals (3 slots) -->
+      <article class="member">
+        <img src="Liu.jpg" alt="Partner 1">
         <div class="info">
           <h2>Shiwen Liu</h2>
-          <p><strong>Honorary Violinist</strong></p>
+          <p><strong>Professor of Strings</strong></p>
           <p>Violinist and violist, Liu joined the Shanghai Broadcasting Symphony Orchestra in 1999 and became the principal viola since 2001, the youngest principal of the time. In 2010, she was invited to serve as the guest principal of the Hamburg Symphony Orchestra in Germany, and she is active on stage as a chamber music musician.
             Liu has toured with the orchestra in North America, Europe and Asia. In recent years, she devoted herself to music education (violin and viola) and served as a judge of music competitions. Many of her students won awards in solo or ensemble competitions. She is currently the artistic director of the Shanghai Little Baroque Chamber Orchestra, associate professor of NYU Shanghai and guest professor of Duke Kunshan University in Shanghai.</p>
         </div>
       </article>
 
-      <!-- Member 2 -->
       <article class="member">
-        <img src="Monica.jpg" alt="Monica Luo">
+        <img src="Monica.jpg" alt="Partner 2">
         <div class="info">
           <h2>Monica Luo</h2>
-          <p><strong>Honorary Violist</strong></p>
+          <p><strong>Violist</strong></p>
           <p>Monica is a senior majoring in Business and Finance with a concentration in Business Analytics, and minors in Economics, Chinese Language, Global China Studies, and Social Sciences. On campus, you will often find her in the West Building, where she works with Professor Yue Cheng to coordinate rehearsals and events for the school’s performing arts program, and performs as a violist in the NYU Shanghai Orchestra. With experience in client-facing roles, banking, and quantitative finance across China and the United States, Monica is passionate about helping students leverage their academic experiences to explore and prepare for meaningful career paths.</p>
         </div>
       </article>
 
-      <!-- Member 3 -->
       <article class="member">
-        <img src="Yue.jpg" alt="Yue Cheng">
+        <img src="Yue.jpg" alt="Partner 3">
         <div class="info">
           <h2>Yue Cheng</h2>
           <p><strong>Conductor</strong></p>
           <p>Yue Cheng is the Area Head of Performing Arts and an Associate Arts Professor of Music at NYU Shanghai. Cheng is a graduate of the University of Texas at Austin and the Hartt School of Music. 
             Cheng has performed in the Czech Republic, Germany, Italy, Switzerland, U.S., Japan, China and Brazil.  He has been featured in “Sessione Siena la Musica e Arte”(Italy), and the Southern Bohemian Music Festival (Germany, Czech Republic). His recent career highlights include master classes at West Point Academy and NYU Steinhardt.  He had been a member of the Sao Paulo State Symphony Orchestra and a regular guest member of Tokyo Metropolitan Symphony Orchestra and Hamburg (Germany) Symphoniker.  Currently, Cheng is the principle oboe of the Shanghai Philharmonic Orchestra. 
-            Cheng has won numerous competitions and prizes, including second prize in International Broadcast Competition for Young Musicians in Prague, second place in Kingsville International Music Competition, and first prize in the Mcgauhey-Yeager Competition and the Emerson String Quartet Competition.  
-            </p>
+            Cheng has won numerous competitions and prizes, including second prize in International Broadcast Competition for Young Musicians in Prague, second place in Kingsville International Music Competition, and first prize in the Mcgauhey-Yeager Competition and the Emerson String Quartet Competition. </p>
         </div>
       </article>
+
+      <div class="eyebrow">Institutions</div>
+      <div class="institution-grid">
+        <div><img src="Logo.png" alt="Institution 1"></div>
+        <div><img src="Logo.png" alt="Institution 2"></div>
+        <div><img src="Logo.png" alt="Institution 3"></div>
+      </div>
 
     </main>
   </section>
 
   <script>
-    // Fade-in on scroll for member rows
     const els = document.querySelectorAll('.member');
     const io = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
